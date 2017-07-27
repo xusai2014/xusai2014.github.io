@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浅谈React-router，妙不可言 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React-Router##React-router ###第一节 概要 #####前言Githup链接代码事例 本文章基于React-router 4.0  react-router可应用于浏览器、服务端、native、甚至包括VR，因此许多组件是共享的部分组件适用于特定的环境。然而这并不意味你需要在一个环境中安装两个包（例如共享包和特制包），仅需要安装特定环境的包即可。因为共享的组件在特定环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈React-router，妙不可言">
+<meta property="og:url" content="http://yoursite.com/2017/07/28/浅谈React-router，妙不可言/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="React-Router##React-router ###第一节 概要 #####前言Githup链接代码事例 本文章基于React-router 4.0  react-router可应用于浏览器、服务端、native、甚至包括VR，因此许多组件是共享的部分组件适用于特定的环境。然而这并不意味你需要在一个环境中安装两个包（例如共享包和特制包），仅需要安装特定环境的包即可。因为共享的组件在特定环境">
+<meta property="og:updated_time" content="2017-07-27T16:13:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈React-router，妙不可言">
+<meta name="twitter:description" content="React-Router##React-router ###第一节 概要 #####前言Githup链接代码事例 本文章基于React-router 4.0  react-router可应用于浏览器、服务端、native、甚至包括VR，因此许多组件是共享的部分组件适用于特定的环境。然而这并不意味你需要在一个环境中安装两个包（例如共享包和特制包），仅需要安装特定环境的包即可。因为共享的组件在特定环境">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-浅谈React-router，妙不可言" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/28/浅谈React-router，妙不可言/" class="article-date">
+  <time datetime="2017-07-27T16:12:05.000Z" itemprop="datePublished">2017-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈React-router，妙不可言
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="React-Router"><a href="#React-Router" class="headerlink" title="React-Router"></a>React-Router</h3><p>##React-router</p>
+<p>###第一节 概要</p>
+<p>#####前言<br><a href="https://github.com/ReactTraining/react-router" target="_blank" rel="external">Githup链接</a><br><a href="https://reacttraining.com/" target="_blank" rel="external">代码事例</a></p>
+<p>本文章基于<code>React-router 4.0</code></p>
+<blockquote>
+<p>react-router可应用于浏览器、服务端、native、甚至包括VR，因此许多组件是共享的部分组件适用于特定的环境。<br>然而这并不意味你需要在一个环境中安装两个包（例如共享包和特制包），仅需要安装特定环境的包即可。因为共享的<br>组件在特定环境的路由包中也会被再次exports。</p>
+</blockquote>
+<p><em>这是因为react-router 采用lerna管理，多个包一套代码</em></p>
+<p>####WEB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install react-router-dom</div><div class="line"># or</div><div class="line">yarn add react-router-dom</div></pre></td></tr></table></figure></p>
+<p>使用方式如下:</p>
+<p><code>import {
+  BrowserRouter as Router,
+  StaticRouter, // for server rendering
+  Route,
+  Link
+  // etc.
+} from &#39;react-router-dom&#39;</code></p>
+<p>如果你想让打包文件尽可能的小，可以像如下的代码直接进行模块的引用。理论上Tree-shaking打包器会帮助我们去掉无用的引入，<br>Webpack2.0中应用了Tree-shaking。</p>
+<p><code>import Router from &#39;react-router-dom/BrowserRouter&#39;
+import Route from &#39;react-router-dom/Route&#39;
+// etc.</code></p>
+<p>####Native</p>
+<p>我们为React-router的原生能力编写了大量文档，推荐阅读此<a href="">文档</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add react-router-native</div><div class="line"># or if not using the react-native cli</div><div class="line">npm install react-router-native</div></pre></td></tr></table></figure>
+<p>所有的模块可以从顶层引入，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import &#123;</div><div class="line">  NativeRouter as Router,</div><div class="line">  DeepLinking,</div><div class="line">  AndroidBackButton,</div><div class="line">  Link,</div><div class="line">  Route</div><div class="line">  // etc.</div><div class="line">&#125; from &apos;react-router-native&apos;</div></pre></td></tr></table></figure>
+<p>####不指定环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add react-router</div><div class="line"># or if not using the react-native cli</div><div class="line">npm install react-router</div></pre></td></tr></table></figure>
+<p>所有的模块可以从顶层引入，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import &#123;</div><div class="line">  MemoryRouter as Router,</div><div class="line">  Route</div><div class="line">  // etc.</div><div class="line">&#125; from &apos;react-router&apos;</div></pre></td></tr></table></figure>
+<p>可以随心所欲的在React项目中使用路由导航，导航的状态是存储在路由内存<br>(<strong><em>MemoryRouter</em></strong>),可以查阅NativeRouter的实现方式去了解怎样<br>集成这个用法到你的项目中去。</p>
+<p>###第二节 应用更新阻塞</p>
+<p>#####前言</p>
+<blockquote>
+<p>React-router有一些位置感知的组件，它们基于location对象决定渲染结果<br>默认情况下，location 是React的上下文模型（<strong><em>context model</em></strong>）中被<br>隐式传递的。当location对象发生变化时候，这些组件会从上下文模型中更新location<br>对象，重新渲染。</p>
+</blockquote>
+<p>######如下是针对上面问题的例子</p>
+<p>我们先来分析这个不能自动更新的组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class UpdateBlocker extends React.PureComponent &#123;</div><div class="line">  render() &#123;</div><div class="line">    return this.props.children</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当<updateblocker>在装载过程中，任意具有位置感知功能的子组件会根据 location和match对象<br>去渲染</updateblocker></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// location = &#123; pathname: &apos;/about&apos; &#125;此时路径</div><div class="line">&lt;UpdateBlocker&gt;</div><div class="line">  &lt;NavLink to=&apos;/about&apos;&gt;About&lt;/NavLink&gt;</div><div class="line">  // &lt;a href=&apos;/about&apos; class=&apos;active&apos;&gt;About&lt;/a&gt;</div><div class="line">  &lt;NavLink to=&apos;/faq&apos;&gt;F.A.Q.&lt;/NavLink&gt;</div><div class="line">  // &lt;a href=&apos;/faq&apos;&gt;F.A.Q.&lt;/a&gt;</div><div class="line">&lt;/UpdateBlocker&gt;</div></pre></td></tr></table></figure>
+<p>当路径如下发生变化，<updateblocker>无法探测到prop或者state的变化，所以它的自组件不会<br>重新渲染<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// location = &#123; pathname: &apos;/faq&apos; &#125;</div><div class="line">&lt;UpdateBlocker&gt;</div><div class="line">  // 这个链接不会重新渲染，所以它保留了上一次的激活状态</div><div class="line">  &lt;NavLink to=&apos;/about&apos;&gt;About&lt;/NavLink&gt;</div><div class="line">  // &lt;a href=&apos;/about&apos; class=&apos;active&apos;&gt;About&lt;/a&gt;</div><div class="line">  &lt;NavLink to=&apos;/faq&apos;&gt;F.A.Q.&lt;/NavLink&gt;</div><div class="line">  // &lt;a href=&apos;/faq&apos;&gt;F.A.Q.&lt;/a&gt;</div><div class="line">&lt;/UpdateBlocker&gt;</div></pre></td></tr></table></figure></updateblocker></p>
+<p>#####shouldComponentUpdate<br>当路径发生变化，为了让一个组件知道更新去运行 shouldComponentUpdate方法。可以让<br>shouldComponentUpdate方法具有判断位置变化的能力。</p>
+<p>如果你自己实现了shouldComponentUpdate，可以比对当前和下次路径该变化后的context.router<br>对象。但是作为react使用人员，不应该直接用context。而是不引入context的情况下比较location，<br>才是最理想的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/28/浅谈React-router，妙不可言/" data-id="cj5mnh1ok00014es6bxadnred" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/28/浅谈React-router，妙不可言/">浅谈React-router，妙不可言</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/28/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
